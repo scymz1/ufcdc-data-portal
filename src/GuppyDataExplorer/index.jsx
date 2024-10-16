@@ -45,6 +45,9 @@ class Explorer extends React.Component {
 
     // Disabling noninteractive-tabindex rule because the span tooltip must be focusable as per https://sarahmhigley.com/writing/tooltips-in-wcag-21/
     /* eslint-disable jsx-a11y/no-noninteractive-tabindex */
+    // <a className='g3-accessibility-nav-link g3-ring-on-focus' href='#guppy-explorer-main-tabs'><span>Explorer Filters</span></a> |
+    // <a className='g3-accessibility-nav-link g3-ring-on-focus' href='#guppy-explorer-data-tools'><span>Data Tools</span></a> |
+    // <a className='g3-accessibility-nav-link g3-ring-on-focus' href='#guppy-explorer-summary-statistics'><span>Summary Statistics</span></a> |
     const tabFragment = (
       <React.Fragment>
         <div className='g3-accessibility-links' aria-describedby='g3-accessibility-links-tooltip-explorer'>
@@ -60,9 +63,6 @@ class Explorer extends React.Component {
               <i className='g3-icon g3-icon--sm g3-icon--question-mark-bootstrap help-tooltip-icon' />
             </div>
           </Tooltip>
-          <a className='g3-accessibility-nav-link g3-ring-on-focus' href='#guppy-explorer-main-tabs'><span>Explorer Filters</span></a> |
-          <a className='g3-accessibility-nav-link g3-ring-on-focus' href='#guppy-explorer-data-tools'><span>Data Tools</span></a> |
-          <a className='g3-accessibility-nav-link g3-ring-on-focus' href='#guppy-explorer-summary-statistics'><span>Summary Statistics</span></a> |
           <a className='g3-accessibility-nav-link g3-ring-on-focus' href='#guppy-explorer-table-of-records'><span>Table of Records</span></a>
         </div>
 
