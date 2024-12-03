@@ -64,6 +64,7 @@ class AccessTable extends React.Component {
         </div>
       );
     }
+    // console.log("aaa", this.getDataArboristAuthMapping(this.props.userAuthMapping, this.props.projects), this.props.userAuthMapping, this.props.projects);
     return (
       <div className='access-table'>
         <Table

@@ -231,7 +231,8 @@ async function init() {
                     exact
                     path='/getAccess'
                     component={
-                      (props) => <ProtectedContent component={GetAccessPage} {...props} />
+                      (props) => <ProtectedContent filter={() => store.dispatch(fetchAccess())}
+                      component={GetAccessPage} {...props} />
                     }
                   />
                   {

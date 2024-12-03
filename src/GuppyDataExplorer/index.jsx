@@ -41,6 +41,8 @@ class Explorer extends React.Component {
       return <React.Fragment />;
     }
 
+    // console.log("aaaa", tabIndex);
+
     const tooltipText = 'These accessibility links assist with keyboard navigation of the site. Selecting a link will bring tab focus to the specified page content.';
 
     // Disabling noninteractive-tabindex rule because the span tooltip must be focusable as per https://sarahmhigley.com/writing/tooltips-in-wcag-21/
