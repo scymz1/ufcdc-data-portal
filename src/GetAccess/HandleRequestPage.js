@@ -19,7 +19,7 @@ const parsePolicy = (policy) => {
   return { resource, roles };
 };
 
-const HandleRequestPage = () => {
+const HandleRequestPage = ({isAdmin, email}) => {
   const [requests, setRequests] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -35,8 +35,28 @@ const HandleRequestPage = () => {
   const [selectedRequest, setSelectedRequest] = useState(null); // Current request being approved/rejected
   const [rejectReason, setRejectReason] = useState(""); // Reason for rejection
 
+  // 状态值映射表
+  const statusDescriptions = {
+    DRAFT: "Not Reviewed Yet",
+    SUBMITTED: "Under Review",
+    APPROVED: "Approved",
+    SIGNED: "Signed",
+    REJECTED: "Rejected",
+  };
+
+  // 映射对应的颜色
+  const statusColors = {
+    DRAFT: "#8c9600",
+    SUBMITTED: "#8c9600",
+    APPROVED: "green",
+    SIGNED: "green",
+    REJECTED: "red",
+  };
+  
+  console.log("isAdmin", isAdmin);
   useEffect(() => {
-    fetch(`${requestorPath}request`, {
+    const requestUrl = isAdmin ? `${requestorPath}request` : `${requestorPath}request/user`
+    fetch(requestUrl, {
       method: "GET",
       headers: { ...headers },
       credentials: "include",
@@ -83,7 +103,7 @@ const HandleRequestPage = () => {
           ...headers,
         },
         credentials: "include",
-        body: JSON.stringify({ status: "SIGNED" }),
+        body: JSON.stringify({ status: "SIGNED", email: email}),
       });
       alert("Request approved successfully!");
       setShowApprovePopup(false);
@@ -113,7 +133,7 @@ const HandleRequestPage = () => {
           ...headers,
         },
         credentials: "include",
-        body: JSON.stringify({ status: "REJECTED", reason: rejectReason }),
+        body: JSON.stringify({ status: "REJECTED", rejectReason: rejectReason, email: email }),
       });
       alert("Request rejected successfully!");
       setShowRejectPopup(false);
@@ -173,7 +193,7 @@ const HandleRequestPage = () => {
     <div style={{ padding: "20px" }}>
       <h2>Requests</h2>
       <div>
-        <h3>Processing Requests</h3>
+        <h3>Pending Requests</h3>
         <div className="request-container" ref={(containerRef) => setContainerRef(containerRef)}>
           {paginatedProcessingRequests.map((request) => {
             const { resource, roles } = parsePolicy(request.policy_id);
@@ -184,53 +204,63 @@ const HandleRequestPage = () => {
                 <p><strong>Policy:</strong> {request.policy_id}</p>
                 <p><strong>Resource:</strong> {resource}</p>
                 <p><strong>Request Roles:</strong> {roles.join("; ")}</p>
-                <p><strong>Status:</strong> {request.status}</p>
+                <p style={{fontWeight: "bold"}} >
+                  <strong>Status: </strong> 
+                  <span style={{color: statusColors[request.status] || "inherit" }}>
+                    {statusDescriptions[request.status] || request.status}
+                  </span>
+                </p>
                 <p><strong>Request Reason:</strong> {request.reason}</p>
                 <p><strong>Created:</strong> {new Date(request.created_time).toLocaleString()}</p>
                 <p><strong>Updated:</strong> {new Date(request.updated_time).toLocaleString()}</p>
                 <p><strong>Uploaded Files:</strong></p>
                 <ul>
-                  {Object.entries(request.files || {}).map(([fileId, fileName]) => (
-                    <li key={fileId}>
+                  {request.files.map((file) => (
+                    <li key={file.file_id}>
                       <a
-                        href={`${requestorPath}request/${request.request_id}/file/${fileId}`}
+                        href={`${requestorPath}request/${request.request_id}/file/${file.file_id}`}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        {fileName}
+                        {file.fileType}: {file.filename}
                       </a>
                     </li>
                   ))}
                 </ul>
-                <div className="request-actions">
-                  <button
-                    className="request-action-btn approve"
-                    onClick={() => {
-                      setSelectedRequest(request);
-                      setShowApprovePopup(true);
-                    }}
-                  >
-                    Approve
-                  </button>
-                  <button
-                    className="request-action-btn reject"
-                    onClick={() => {
-                      setSelectedRequest(request);
-                      setShowRejectPopup(true);
-                    }}
-                  >
-                    Reject
-                  </button>
-                </div>
+                {
+                  isAdmin &&
+                  <div className="request-actions">
+                    <button
+                      className="request-action-btn approve"
+                      onClick={() => {
+                        setSelectedRequest(request);
+                        setShowApprovePopup(true);
+                      }}
+                    >
+                      Approve
+                    </button>
+                    <button
+                      className="request-action-btn reject"
+                      onClick={() => {
+                        setSelectedRequest(request);
+                        setShowRejectPopup(true);
+                      }}
+                    >
+                      Reject
+                    </button>
+                  </div>
+                }
               </div>
             );
           })}
         </div>
         {renderPagination(processingRequests.length, processingPage, setProcessingPage)}
       </div>
+      <br/>
       <hr />
+      <br/>
       <div>
-        <h3>Processed Requests</h3>
+        <h3>Completed Requests</h3>
         <div className="request-container">
           {paginatedProcessedRequests.map((request) => {
             const { resource, roles } = parsePolicy(request.policy_id);
@@ -241,7 +271,12 @@ const HandleRequestPage = () => {
                 <p><strong>Policy:</strong> {request.policy_id}</p>
                 <p><strong>Resource:</strong> {resource}</p>
                 <p><strong>Request Roles:</strong> {roles.join("; ")}</p>
-                <p><strong>Status:</strong> {request.status}</p>
+                <p style={{fontWeight: "bold"}} >
+                  <strong>Status: </strong> 
+                  <span style={{color: statusColors[request.status] || "inherit" }}>
+                    {statusDescriptions[request.status] || request.status}
+                  </span>
+                </p>
                 <p><strong>Request Reason:</strong> {request.reason}</p>
                 <p><strong>Created:</strong> {new Date(request.created_time).toLocaleString()}</p>
                 <p><strong>Updated:</strong> {new Date(request.updated_time).toLocaleString()}</p>

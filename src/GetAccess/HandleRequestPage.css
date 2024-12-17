@@ -30,6 +30,8 @@ margin-top: 20px;
 .pagination-btn {
 padding: 5px 10px;
 border: 1px solid #ccc;
+height: auto;
+width: auto;
 background: #f9f9f9;
 cursor: pointer;
 }

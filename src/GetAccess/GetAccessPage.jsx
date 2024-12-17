@@ -47,8 +47,8 @@ const AccessPage = ({ userAuthMapping, user }) => {
     // files: [],
   });
   const [files, setFiles] = useState([]);
-  const [biosketchfile, setBiosketchFile] = useState(None);
-  const [resume, setResume] = useState(None);
+  const [biosketchfile, setBiosketchFile] = useState(null);
+  const [resume, setResume] = useState(null);
   const [activeTab, setActiveTab] = useState('request'); // Tabs: 'request' or 'admin'
   const [feedbackMessage, setFeedbackMessage] = useState(null); // For success or error messages
   const [isError, setIsError] = useState(false); // To style the message based on success/failure
@@ -83,39 +83,6 @@ const AccessPage = ({ userAuthMapping, user }) => {
     setFormData((prev) => ({ ...prev, files }));
   };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const requestBody = {
-  //     resource_paths: [`/programs/${formData.program}/projects/${formData.project}`],
-  //     role_ids: formData.accessTypes,
-  //     reason: formData.reason,
-  //     username: user.email,
-  //   };
-  //   console.log('Request Body:', requestBody);
-  //   fetch(`${requestorPath}request`, {
-  //     method: 'POST',
-  //     headers: { ...headers },
-  //     body: JSON.stringify(requestBody),
-  //     credentials: 'include',
-  //   })
-  //   .then((response) => {
-  //     if (!response.ok) {
-  //       throw new Error(`HTTP error! Status: ${response.status}`);
-  //     }
-  //     return response.json();
-  //   })
-  //   .then((data) => {
-  //     console.log('Request submitted successfully:', data);
-  //     setFeedbackMessage('Request successfully submitted.');
-  //     setIsError(false); // Success
-  //   })
-  //   .catch((error) => {
-  //     console.error('Error submitting request:', error);
-  //     setFeedbackMessage(`Failed to submit request: ${error.message}`);
-  //     setIsError(true); // Error
-  //   });
-  // };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
   
@@ -126,8 +93,12 @@ const AccessPage = ({ userAuthMapping, user }) => {
     requestformData.append("resource_path", `/programs/${formData.program}/projects/${formData.project}`);
     requestformData.append("reason", formData.reason);
     formData.accessTypes.forEach((accessType) => requestformData.append("role_ids", accessType));
-    requestformData.append("biosketchfile", biosketchfile);
-    requestformData.append("Resume", resume);
+    if (biosketchfile) {
+      requestformData.append("biosketchfile", biosketchfile);
+    }
+    if (resume) {
+      requestformData.append("resume", resume);
+    }    
     if (files && files.length > 0) {
       Array.from(files).forEach((file) => {
         requestformData.append("files", file); // 与后端的字段名一致
@@ -153,20 +124,14 @@ const AccessPage = ({ userAuthMapping, user }) => {
   
       const data = await response.json();
       console.log("Request submitted successfully:", data);
-      alert("Request submitted successfully!");
+      setFeedbackMessage(`Request submitted successfully! Updates would be sent to email ${user.email} once administrator processed the request.`);
+      // alert("Request submitted successfully!");
     } catch (error) {
       console.error("Error submitting request:", error);
-      alert("Error submitting request: " + error.message);
+      setFeedbackMessage("Error submitting request:", error);
+      // alert("Error submitting request: " + error.message);
     }
   };
-
-  // Admin tab content: Placeholder for admin functionality
-  const renderAdminContent = () => (
-    <div>
-      <h2>Process Requests</h2>
-      <HandleRequestPage />
-    </div>
-  );
 
   // Request tab content
   const renderRequestContent = () => (
@@ -312,7 +277,7 @@ const AccessPage = ({ userAuthMapping, user }) => {
             type="file"
             name="files"
             // onChange={handleFileChange}
-            onChange={(e) => setBiosketchFile(e.target.files)} // 使用 state 存储文件\
+            onChange={(e) => setBiosketchFile(e.target.files[0])} // 使用 state 存储文件\
             required
             style={{ marginLeft: '10px', padding: '5px' }}
           />
@@ -323,7 +288,7 @@ const AccessPage = ({ userAuthMapping, user }) => {
             type="file"
             name="files"
             // onChange={handleFileChange}
-            onChange={(e) => setResume(e.target.files)} // 使用 state 存储文件\
+            onChange={(e) => setResume(e.target.files[0])} // 使用 state 存储文件\
             required
             style={{ marginLeft: '10px', padding: '5px' }}
           />
@@ -340,29 +305,27 @@ const AccessPage = ({ userAuthMapping, user }) => {
   return (
     <div style={{ textAlign: 'left', padding: '50px' }}>
       {/* <h1>Access Page</h1> */}
-      {isAdmin && (
-        <div style={{ marginBottom: '20px' }}>
-          <button
-            className={'g3-unstyle-btn g3-ring-on-focus guppy-explorer__tab'.concat(activeTab === 'request' ? ' guppy-explorer__tab--selected' : '')}
-            label="Request Access"
-            buttonType={activeTab === 'request' ? 'primary' : 'default'}
-            onClick={() => setActiveTab('request')}
-          >
-            <h3>Request Access</h3>
-          </button>
-          <button
-            className={'g3-unstyle-btn g3-ring-on-focus guppy-explorer__tab'.concat(activeTab === 'admin' ? ' guppy-explorer__tab--selected' : '')}
-            label="Admin Panel"
-            buttonType={activeTab === 'admin' ? 'primary' : 'default'}
-            onClick={() => setActiveTab('admin')}
-          >
-            <h3>Process Requests (Admin only)</h3>
-          </button>
-        </div>
-      )}
+      <div style={{ marginBottom: '20px' }}>
+        <button
+          className={'g3-unstyle-btn g3-ring-on-focus guppy-explorer__tab'.concat(activeTab === 'request' ? ' guppy-explorer__tab--selected' : '')}
+          label="Request Access"
+          buttonType={activeTab === 'request' ? 'primary' : 'default'}
+          onClick={() => setActiveTab('request')}
+        >
+          <h3>Request Access</h3>
+        </button>
+        <button
+          className={'g3-unstyle-btn g3-ring-on-focus guppy-explorer__tab'.concat(activeTab === 'admin' ? ' guppy-explorer__tab--selected' : '')}
+          label="Admin Panel"
+          buttonType={activeTab === 'admin' ? 'primary' : 'default'}
+          onClick={() => setActiveTab('admin')}
+        >
+          <h3>{isAdmin ? "Process Requests (Admin only)" : "Submitted history"}</h3>
+        </button>
+      </div>
       <div className={'guppy-explorer__main'} style={{padding: "32px", marginTop: "-20px"}}>
         {activeTab === 'request' && renderRequestContent()}
-        {activeTab === 'admin' && renderAdminContent()}
+        {activeTab === 'admin' && <HandleRequestPage isAdmin={isAdmin} email={user.email}/>}
       </div>
     </div>
   );
