@@ -1,1070 +1,1077 @@
 {
-    "components": {
-      "appName": "Cancer Data Commons Portal",
-      "graphql": {
-        "boardCounts": [
-          {
-            "graphql": "_study_count",
-            "name": "Study",
-            "plural": "Studies"
-          },
-          {
-            "graphql": "_case_count",
-            "name": "Participant",
-            "plural": "Participants"
-          },
-          {
-            "graphql": "_follow_up_count",
-            "name": "Follow up",
-            "plural": "Follow_ups"
-          }
-        ],
-        "chartCounts": [
-          {
-            "graphql": "_case_count",
-            "name": "Case"
-          },
-          {
-            "graphql": "_follow_up_count",
-            "name": "Follow up"
-          }
-        ],
-        "projectDetails": "boardCounts"
-      },
-      "index":{
-        "introduction":{
-          "heading":"Cancer Data Commons",
-          "text":"The Cancer Data Commons supports the management, analysis and sharing of data for the research community.",
-          "link":"/submission"
-        },
-        "buttons":[
-          {
-            "name": "Define Data Field",
-            "icon": "data-field-define",
-            "body": "The Cancer Data Commons define the data in a general way. Please study the dictionary before you start browsing.",
-            "link": "/DD",
-            "label": "Learn more"
-          },
-          {
-            "name": "Explore Data",
-            "icon": "data-explore",
-            "body": "The Exploration Page allows filtering data for targeted visualization, which gives you insights and a clear overview under selected factors.",
-            "link": "/explorer",
-            "label": "Explore data"
-          },
-          {
-            "name": "Access Data",
-            "icon": "data-access",
-            "body": "Use our selected tool to filter out the data you need.",
-            "link": "/query",
-            "label": "Query data"
-          },
-          {
-            "name": "Submit Data",
-            "icon": "data-submit",
-            "body": "Submit Data based on the GDC Data Dictionary.",
-            "link": "/submission",
-            "label": "Submit data"
-          }
-        ],
-        "homepageChartNodes": [
-              {
-                "node": "study",
-                "name": "Studies"
-              },
-              {
-                "node": "case",
-                "name": "Participants"
-              },
-              {
-                "node": "follow_up",
-                "name": "Follow_ups"
-              }
-          ]
-      },
-      "navigation": {
-        "title": "Cancer Data Commons",
-        "items": [
-          {
-            "icon": "dictionary",
-            "link": "/DD",
-            "color": "#421C52",
-            "name": "Dictionary",
-            "tooltip": ""
-          },
-          {
-            "icon": "exploration",
-            "link": "/explorer",
-            "name": "Exploration",
-            "tooltip": ""
-          },
-          {
-            "icon": "files",
-            "link": "/files",
-            "name": "Files",
-            "tooltip": ""
-          },
-          {
-            "icon": "query",
-            "link": "/query",
-            "name": "Query",
-            "tooltip": ""
-          },
-          {
-            "icon": "workspace",
-            "link": "#hostname#workspace/",
-            "name": "Workspace",
-            "tooltip": ""
-          },
-          {
-            "icon": "profile",
-            "link": "/identity",
-            "name": "Profile",
-            "color": "#A2A2A2",
-            "tooltip": ""
-          },
-          {
-            "icon": "exploration",
-            "link": "/getAccess",
-            "name": "Get Access",
-            "color": "#A2A2A2",
-            "tooltip": ""
-          }
-        ]
-      },
-  
-      "topBar": {
-        "color":"#005496",
-        "items": [
-          {
-            "icon": "upload",
-            "link": "/submission",
-            "name": "Submit Data"
-          },
-          {
-            "link": "https://hobi.med.ufl.edu/profile/song-qianqian/",
-            "name": "Contact"
-          }
-        ]
-      },
-  
-      "login": {
-        "title": "Cancer Data Commons",
-        "subTitle": "UF Health Cancer Center",
-        "text": "The UF Cancer Data Commons is designed for integrative querying and visualization of the clinical, biospecimen, and molecular data from clinical trials and research studies under the findable, accessible, interoperable, and reusable (FAIR) principles.",
-        "contact": "If you have any question please contact the UF Development Team at ",
-        "email": "minghao.zhou@ufl.edu",
-        "image": "/../../../../custom/sponsors/gitops-sponsors/ardac_gene"
-      },
-      "footerLogos": [
+  "components": {
+    "appName": "Cancer Data Commons Portal",
+    "graphql": {
+      "boardCounts": [
         {
-          "src": "/src/img/ufhcc_logo_Page_2.png",
-          "href": "http://www.alchepnet.org/",
-          "alt": "Alchepnet Data Commons"
+          "graphql": "_study_count",
+          "name": "Study",
+          "plural": "Studies"
         },
         {
-          "src": "/src/img/CancerCenter_h_RGB_COLOR_Badge_180x72.png",
-          "href": "http://www.alchepnet.org/",
-          "alt": "Alchepnet Data Commons"
+          "graphql": "_case_count",
+          "name": "Participant",
+          "plural": "Participants"
+        },
+        {
+          "graphql": "_follow_up_count",
+          "name": "Follow up",
+          "plural": "Follow_ups"
         }
       ],
-      "categorical9Colors": [
-        "#E57272", "#F06192", "#B967C7", "#9474CC",
-        "#7985CB", "#64B4F6", "#4EC3F7", "#4CD0E0", "#4CB6AC",
-        "#80C684", "#ADD480", "#DCE674", "#FFF176", "#FFF176",
-        "#FFD44E", "#FFB74C", "#FF8A65", "#A0877F"],
-      "categorical2Colors": ["#E57272", "#B967C7"]
+      "chartCounts": [
+        {
+          "graphql": "_case_count",
+          "name": "Case"
+        },
+        {
+          "graphql": "_follow_up_count",
+          "name": "Follow up"
+        }
+      ],
+      "projectDetails": "boardCounts"
     },
-    "featureFlags": {
-      "explorer": true,
-      "explorerPublic": false
+    "index":{
+      "introduction":{
+        "heading":"Cancer Data Commons",
+        "text":"The Cancer Data Commons supports the management, analysis and sharing of data for the research community.",
+        "link":"/submission"
+      },
+      "buttons":[
+        {
+          "name": "Define Data Field",
+          "icon": "data-field-define",
+          "body": "The Cancer Data Commons define the data in a general way. Please study the dictionary before you start browsing.",
+          "link": "/DD",
+          "label": "Learn more"
+        },
+        {
+          "name": "Explore Data",
+          "icon": "data-explore",
+          "body": "The Exploration Page allows filtering data for targeted visualization, which gives you insights and a clear overview under selected factors.",
+          "link": "/explorer",
+          "label": "Explore data"
+        },
+        {
+          "name": "Access Data",
+          "icon": "data-access",
+          "body": "Use our selected tool to filter out the data you need.",
+          "link": "/query",
+          "label": "Query data"
+        },
+        {
+          "name": "Submit Data",
+          "icon": "data-submit",
+          "body": "Submit Data based on the GDC Data Dictionary.",
+          "link": "/submission",
+          "label": "Submit data"
+        }
+      ],
+      "homepageChartNodes": [
+            {
+              "node": "study",
+              "name": "Studies"
+            },
+            {
+              "node": "case",
+              "name": "Participants"
+            },
+            {
+              "node": "follow_up",
+              "name": "Follow_ups"
+            }
+        ]
     },
-    "explorerConfig": [
+    "navigation": {
+      "title": "Cancer Data Commons",
+      "items": [
+        {
+          "icon": "dictionary",
+          "link": "/DD",
+          "color": "#421C52",
+          "name": "Dictionary",
+          "tooltip": ""
+        },
+        {
+          "icon": "exploration",
+          "link": "/explorer",
+          "name": "Exploration",
+          "tooltip": ""
+        },
+        {
+          "icon": "files",
+          "link": "/files",
+          "name": "Files",
+          "tooltip": ""
+        },
+        {
+          "icon": "query",
+          "link": "/query",
+          "name": "Query",
+          "tooltip": ""
+        },
+        {
+          "icon": "dataAnalysis",
+          "link": "/dataAnalyze",
+          "name": "Analyze data",
+          "color": "#A2A2A2",
+          "tooltip": ""
+        },
+        {
+          "icon": "workspace",
+          "link": "#hostname#workspace/",
+          "name": "Workspace",
+          "tooltip": ""
+        },
+        {
+          "icon": "profile",
+          "link": "/identity",
+          "name": "Profile",
+          "color": "#A2A2A2",
+          "tooltip": ""
+        },
+        {
+          "icon": "exploration",
+          "link": "/getAccess",
+          "name": "Get Access",
+          "color": "#A2A2A2",
+          "tooltip": ""
+        }
+      ]
+    },
+
+    "topBar": {
+      "color":"#005496",
+      "items": [
+        {
+          "icon": "upload",
+          "link": "/submission",
+          "name": "Submit Data"
+        },
+        {
+          "link": "https://hobi.med.ufl.edu/profile/song-qianqian/",
+          "name": "Contact"
+        }
+      ]
+    },
+
+    "login": {
+      "title": "Cancer Data Commons",
+      "subTitle": "UF Health Cancer Center",
+      "text": "The UF Cancer Data Commons is designed for integrative querying and visualization of the clinical, biospecimen, and molecular data from clinical trials and research studies under the findable, accessible, interoperable, and reusable (FAIR) principles.",
+      "contact": "If you have any question please contact the UF Development Team at ",
+      "email": "minghao.zhou@ufl.edu",
+      "image": "/../../../../custom/sponsors/gitops-sponsors/ardac_gene"
+    },
+    "footerLogos": [
       {
-        "tabTitle": "Participants",
-        "charts": {
-          "project_id": {
-            "chartType": "count",
-            "title": "Projects"
-          },
-          "study_id": {
-            "chartType": "count",
-            "title": "Studys"
-          },
-          "gender": {
-            "chartType": "fullPie",
-            "title": "Sex"
-          },
-          "race": {
-            "chartType": "bar",
-            "title": "Race"
-          },
-          "ethnicity": {
-            "chartType": "pie",
-            "title": "Ethnicity"
-          },
-          "study_site": {
-            "chartType": "pie",
-            "title": "Study Site"
-          },
-          "visit_day_set": {
-            "chartType": "fullPie",
-            "title": "Visits (day)"
-          },
-          "drinking_frequency": {
-            "chartType":"bar",
-            "title": "Drinking Frequency in the past year"
-          },
-          "drinks_per_day": {
-            "chartType":"bar",
-            "title": "Drinks per Day in the past year"
-          },
-          "frequency_of_heavy_drinking": {
-            "chartType":"bar",
-            "title": "Frequency Of Heavy Drinking in the past year"
-          },
-          "irAE_status": {
-            "chartType": "fullPie",
-            "title": "irAE Status"
-          },
-          "days_90_survival": {
-            "chartType":"fullPie",
-            "title": "Days 90 Survival"
-          },
-          "days_180_survival": {
-            "chartType":"fullPie",
-            "title": "Days 180 Survival"
-          },
-          "days_90_irAE": {
-            "chartType": "pie",
-            "title": "Days 90 irAE"
-          },
-          "days_180_irAE": {
-            "chartType":"pie",
-            "title": "Days 180 irAE"
-          }
-        },
-        "filters": {
-          "tabs": [
-            {
-              "title": "Study",
-              "fields":[
-                "project_id",
-                "study_name",
-                "actarm"
-              ]
-            },
-            {
-              "title": "Participant",
-              "fields":[
-                "gender",
-                "race",
-                "ethnicity",
-                "study_site"
-              ]
-            },
-            {
-              "title": "Behavior",
-              "fields":[
-                "drinking_frequency",
-                "drinks_per_day",
-                "frequency_of_heavy_drinking"
-              ]
-            },
-            {
-              "title": "Outcome",
-              "fields":[
-                "days_to_death",
-                "days_90_survival",
-                "days_180_survival"
-              ]
-            },
-            {
-              "title": "Lab Test",
-              "fields":[
-                "laboratory_test"
-              ]
-            }
-          ]
-        },
-        "table": {
-          "enabled": true,
-          "fields": [
-            "project_id",
-            "pat_id",
-            "visit_day",
-            "group",
-            "study_site",
-            "gender",
-            "race",
-            "actarm",
-            "ethnicity",
-            "age_at_index",
-            "drinking_frequency",
-            "drinks_per_day",
-            "frequency_of_heavy_drinking",
-            "irAE_status",
-            "days_to_death",
-            "days_90_irAE",
-            "days_90_survival",
-            "days_180_irAE",
-            "days_180_survival",
-            "laboratory_test"
-          ]
-        },
-        "dropdowns": {},
-        "buttons": [],
-        "guppyConfig": {
-          "dataType": "case",
-          "tierAccessLevel": "regular",
-          "nodeCountTitle": "Participants",
-          "fieldMapping": [
-            { "field": "project_id", "name": "Project" },
-            { "field": "pat_id", "name": "Patient Id" },
-            { "field": "visit_day", "name": "Assessment Date" },
-            { "field": "study_site", "name": "Clinical site"},
-            { "field": "actarm", "name": "Treatment Arm"},
-            { "field": "age_at_index", "name": "Age"},
-            { "field": "eGFR", "name": "eGFR"},
-            { "field": "gender", "name": "sex"},
-            {"field":"observational", "name": "Observational"},
-            {"field": "clinical_trial", "name": "Clinical Trial" },
-            { "field": "drinking_frequency", "name": "Drinking frequency in the past year"},
-            { "field": "drinks_per_day", "name": "Drinks per day in the past year"},
-            { "field": "frequency_of_heavy_drinking", "name": "Frequency of heavy Drinking in the past year"},
-            { "field": "irAE_status", "name": "irAE status"},
-            { "field": "days_to_death", "name": "days to Survival"},
-            { "field": "days_90_irAE", "name": "days 90 irAE"},
-            { "field": "days_90_survival", "name": "days 90 survival"},
-            { "field": "days_180_irAE", "name": "days 180 irAE"}
-          ],
-          "manifestMapping": {
-            "resourceIndexType": "file",
-            "resourceIdField": "object_id",
-            "referenceIdFieldInResourceIndex": "_case_id",
-            "referenceIdFieldInDataIndex": "_case_id"
-          },
-          "accessibleFieldCheckList": ["project_id"],
-          "accessibleValidationField": "project_id"
-        },
-        "getAccessButtonLink": "https://ufcdc-portal.org/getAccess"
+        "src": "/src/img/ufhcc_logo_Page_2.png",
+        "href": "http://www.alchepnet.org/",
+        "alt": "Alchepnet Data Commons"
       },
       {
-        "tabTitle": "Follow Ups",
-        "charts": {
-          "study_id": {
-            "chartType": "count",
-            "title": "Studys"
-          },
-          "visit_day": {
-            "chartType": "pie",
-            "title": "Visits (day)"
-          },
-          "case_arm": {
-            "chartType": "bar",
-            "title": "Treatment Arm"
-          },
-          "case_group": {
-            "chartType": "bar",
-            "title": "Case Group"
-          },
-          "gender": {
-            "chartType": "fullPie",
-            "title": "Sex"
-          },
-          "race": {
-            "chartType": "bar",
-            "title": "Race"
-          },
-          "ethnicity": {
-            "chartType": "pie",
-            "title": "Ethnicity"
-          },
-          "study_site": {
-            "chartType": "fullPie",
-            "title": "Study Site"
-          },
-          "days_90_survival": {
-            "chartType":"fullPie",
-            "title": "Days 90 Survival"
-          },
-          "days_180_survival": {
-            "chartType":"fullPie",
-            "title": "Days 180 Survival"
-          },
-          "days_90_irAE": {
-            "chartType": "pie",
-            "title": "Days 90 irAE"
-          },
-  
-          "days_180_irAE": {
-            "chartType":"pie",
-            "title": "Days 180 irAE"
-          }
-        },
-        "filters": {
-          "tabs": [
-            {
-              "title": "Study",
-              "fields":[
-                "project_id",
-                "study_name",
-                "case_arm",
-                "case_group"
-              ]
-            },
-            {
-              "title": "Follow Up",
-              "fields":[
-                "visit_day",
-                "bmi",
-                "child_pugh_score",
-                "lille_score",
-                "maddreys_score",
-                "meld_score"
-              ]
-            },
-            {
-              "title": "Lab Test",
-              "fields":[
-                "laboratory_test"
-              ]
-            },
-            {
-              "title": "Participant",
-              "fields":[
-                "study_site",
-                "gender",
-                "race",
-                "ethnicity"
-              ]
-            },
-            {
-              "title": "Outcome",
-              "fields":[
-                "days_to_death",
-                "days_90_survival",
-                "days_180_survival"
-              ]
-            }
-          ]
-        },
-        "table": {
-          "enabled": true,
-          "fields": [
-            "project_id",
-            "follow_up_id",
-            "study_name",
-            "pat_id",
-            "visit_day",
-            "bmi",
-            "child_pugh_score",
-            "lille_score",
-            "maddreys_score",
-            "meld_score",
-            "case_arm",
-            "case_group"
-          ]
-        },
-        "dropdowns": {},
-        "buttons": [],
-        "guppyConfig": {
-          "dataType": "follow_up",
-          "tierAccessLevel": "regular",
-          "nodeCountTitle": "Follow_ups",
-          "fieldMapping": [
-            { "field": "pat_id", "name": "Patient Id"},
-            { "field": "visit_day", "name": "Assessment Date" },
-            { "field": "study_site", "name": "Clinical site"},
-            { "field": "case_arm", "name": "Treatment Arm"},
-            { "field": "project_id", "name": "Project" },
-            { "field": "visit_day", "name": "Assessment Date" },
-            {"field":"observational", "name": "Observational"},
-            {"field": "clinical_trial", "name": "Clinical Trial" },
-            { "field": "gender", "name": "sex"},
-            { "field": "irAE_status", "name": "irAE status"},
-            { "field": "days_to_death", "name": "days to Survival"},
-            { "field": "days_90_irAE", "name": "days 90 irAE"},
-            { "field": "days_90_survival", "name": "days 90 survival"},
-            { "field": "days_180_irAE", "name": "days 180 irAE"}
-          ],
-          "manifestMapping": {
-            "resourceIndexType": "file",
-            "resourceIdField": "object_id",
-            "referenceIdFieldInResourceIndex": "_case_id",
-            "referenceIdFieldInDataIndex": "_case_id"
-          },
-          "accessibleFieldCheckList": ["project_id"],
-          "accessibleValidationField": "project_id"
-        },
-        "getAccessButtonLink": "https://ufcdc-portal.org/getAccess"
-      },
-      {
-        "tabTitle": "Biospecimens",
-        "charts": {
-          "follow_up_id":{
-            "chartType": "count",
-            "title": "Follow Ups"
-          },
-          "lab_id":{
-            "chartType": "count",
-            "title": "Labs"
-          },
-          "lab_name":{
-            "chartType": "bar",
-            "title": "Labs"
-          },
-          "specimen_type":{
-            "chartType": "bar",
-            "title": "Specimen Type"
-          },
-          "case_group":{
-            "chartType":"bar",
-            "title":"Case Group"
-          },
-          "gender": {
-            "chartType": "fullPie",
-            "title": "Sex"
-          },
-          "race": {
-            "chartType": "bar",
-            "title": "Race"
-          },
-          "ethnicity": {
-            "chartType": "pie",
-            "title": "Ethnicity"
-          },
-          "study_site": {
-            "chartType": "fullPie",
-            "title": "Study Site"
-          },
-          "days_90_survival": {
-            "chartType":"fullPie",
-            "title": "Days 90 Survival"
-          },
-          "days_180_survival": {
-            "chartType":"fullPie",
-            "title": "Days 180 Survival"
-          },
-          "days_90_irAE": {
-            "chartType": "pie",
-            "title": "Days 90 irAE"
-          },
-  
-          "days_180_irAE": {
-            "chartType":"pie",
-            "title": "Days 180 irAE"
-          }
-        },
-        "filters": {
-          "tabs": [
-            {
-              "title": "Biospecimen",
-              "fields":[
-                "specimen_type",
-                "lab_name"
-              ]
-            },
-            {
-              "title": "Study",
-              "fields":[
-                "project_id",
-                "study_name",
-                "case_group",
-                "case_arm"
-              ]
-            },
-            {
-              "title":"Participant",
-              "fields":[
-                "study_site",
-                "gender",
-                "race",
-                "ethnicity"
-              ]
-            },
-            {
-              "title":"Follow Up",
-              "fields": [
-                "visit_day"
-              ]
-            },
-            {
-              "title": "Outcome",
-              "fields":[
-                "days_to_death",
-                "days_90_survival",
-                "days_180_survival"
-              ]
-            }
-          ]
-        },
-        "table": {
-          "enabled": true,
-          "fields": [
-            "project_id",
-            "aliquot_id",
-            "follow_up_id",
-            "pat_id",
-            "specimen_type",
-            "visit_day",
-            "irAE_status"
-          ]
-        },
-        "dropdowns": {},
-        "buttons": [],
-        "guppyConfig": {
-          "dataType": "aliquot",
-          "tierAccessLevel": "regular",
-          "nodeCountTitle": "Biospecimens",
-          "fieldMapping": [
-            { "field": "project_id", "name": "Project" },
-            { "field": "pat_id", "name": "Patient Id" },
-            { "field": "visit_day", "name": "Assessment Date" },
-            { "field": "study_site", "name": "Clinical site"},
-            { "field": "observational", "name": "Observational"},
-            { "field": "clinical_trial", "name": "Clinical Trial" },
-            { "field": "gender", "name": "sex"},
-            { "field": "days_to_death", "name": "days to Survival"}
-          ],
-          "manifestMapping": {
-            "resourceIndexType": "file",
-            "resourceIdField": "object_id",
-            "referenceIdFieldInResourceIndex": "_case_id",
-            "referenceIdFieldInDataIndex": "_case_id"
-          },
-          "accessibleFieldCheckList": ["project_id"],
-          "accessibleValidationField": "project_id"
-        },
-        "getAccessButtonLink": "https://ufcdc-portal.org/getAccess"
-      },
-      {
-        "tabTitle": "Lab Results",
-        "charts": {
-          "project_id": {
-            "chartType": "count",
-            "title": "Projects"
-          },
-          "laboratory_test": {
-            "chartType": "bar",
-            "title": "Laboratory Test"
-          },
-          "gender": {
-            "chartType": "fullPie",
-            "title": "Sex"
-          },
-          "race": {
-            "chartType": "bar",
-            "title": "Race"
-          },
-          "lab_name": {
-            "chartType":"bar",
-            "title": "Lab"
-          },
-          "study_site": {
-            "chartType": "fullPie",
-            "title": "Study Site"
-          },
-          "ethnicity": {
-            "chartType": "pie",
-            "title": "Ethnicity"
-          },
-          "test_result": {
-            "chartType": "pie",
-            "title": "Test Result"
-          },
-          "days_90_survival": {
-            "chartType":"fullPie",
-            "title": "Days 90 Survival"
-          },
-          "days_180_survival": {
-            "chartType":"fullPie",
-            "title": "Days 180 Survival"
-          },
-          "days_90_irAE": {
-            "chartType": "pie",
-            "title": "Days 90 irAE"
-          },
-          "days_180_irAE": {
-            "chartType":"pie",
-            "title": "Days 180 irAE"
-          }
-        },
-        "filters": {
-          "tabs": [
-            {
-              "title": "Study",
-              "fields":[
-                "project_id",
-                "study_name",
-                "case_arm",
-                "case_group"
-              ]
-            },
-            {
-              "title":"Lab",
-              "fields": [
-                "lab_name"
-              ]
-            },
-            {
-              "title":"Participant",
-              "fields":[
-                "gender",
-                "race",
-                "ethnicity",
-                "study_site"
-              ]
-            },
-            {
-              "title": "Lab Test",
-              "fields":[
-                "laboratory_test",
-                "test_result"
-              ]
-            },
-            {
-              "title": "Outcome",
-              "fields":[
-                "days_to_death",
-                "days_90_survival",
-                "days_180_survival"
-              ]
-            }
-          ]
-        },
-        "table": {
-          "enabled": true,
-          "fields": [
-            "project_id",
-            "molecular_test_id",
-            "study_name",
-            "pat_id",
-            "case_arm",
-            "case_group",
-            "laboratory_test",
-            "test_value",
-            "test_result",
-            "irAE_status",
-            "visit_day"
-          ]
-        },
-        "guppyConfig": {
-          "dataType": "molecular_test",
-          "tierAccessLevel": "regular",
-          "nodeCountTitle": "Lab Results",
-          "fieldMapping": [
-            { "field": "project_id", "name": "Project" },
-            { "field": "pat_id", "name": "Patient Id" },
-            { "field": "visit_day", "name": "Assessment Date" },
-            { "field": "study_site", "name": "Clinical site"},
-            { "field": "observational", "name": "Observational"},
-            { "field": "clinical_trial", "name": "Clinical Trial" },
-            { "field": "days_to_death", "name": "days to Survival"},
-            { "field": "gender", "name": "sex"}
-          ],
-          "manifestMapping": {
-            "resourceIndexType": "file",
-            "resourceIdField": "object_id",
-            "referenceIdFieldInResourceIndex": "_case_id",
-            "referenceIdFieldInDataIndex": "_case_id"
-          },
-          "accessibleFieldCheckList": ["project_id"],
-          "accessibleValidationField": "project_id"
-        },
-        "getAccessButtonLink": "https://ufcdc-portal.org/getAccess"
-      },
-      {
-        "tabTitle": "Omics Data",
-        "charts": {
-          "project_id": {
-            "chartType": "count",
-            "title": "Projects"
-          },
-          "genomic_experimental_strategy": {
-            "chartType": "bar",
-            "title": "Genomic Profile Experimental Strategy"
-          },
-          "genomic_data_category": {
-            "chartType": "pie",
-            "title": "Genomic Profile Data Category"
-          },
-          "genomic_data_format": {
-            "chartType": "fullPie",
-            "title": "Genomic Profile Data Format"
-          },
-          "slide_image_data_category": {
-            "chartType": "pie",
-            "title": "Slide Image Data Category"
-          },
-          "slide_image_data_format": {
-            "chartType": "fullPie",
-            "title": "Slide Image Data Format"
-          }
-        },
-        "filters": {
-          "tabs": [
-            {
-              "title": "Genomic Profile",
-              "fields":[
-                "project_id",
-                "genomic_experimental_strategy",
-                "genomic_data_category",
-                "genomic_data_format"
-              ]
-            }
-          ]
-        },
-        "table": {
-          "enabled": true,
-          "fields": [
-            "project_id",
-            "core_metadata_collections_id",
-            "genomic_data_category",
-            "genomic_data_format",
-            "genomic_data_type",
-            "genomic_file_name",
-            "genomic_file_size",
-            "genomic_md5sum"
-          ]
-        },
-        "dropdowns": {
-          "download": {
-            "title": "Download"
-          }
-        },
-        "buttons": [
-          {
-            "enabled": true,
-            "type": "data",
-            "title": "Download All Clinical",
-            "leftIcon": "user",
-            "rightIcon": "download",
-            "fileName": "clinical.json",
-            "dropdownId": "download"
-          },
-          {
-            "enabled": true,
-            "type": "data-tsv",
-            "title": "TSV",
-            "leftIcon": "datafile",
-            "rightIcon": "download",
-            "fileName": "clinical.tsv",
-            "dropdownId": "download"
-          },
-          {
-            "enabled": true,
-            "type": "data-csv",
-            "title": "CSV",
-            "leftIcon": "datafile",
-            "rightIcon": "download",
-            "fileName": "clinical.csv", 
-            "dropdownId": "download"
-          },
-          {
-            "enabled": true,
-            "type": "data-json",
-            "title": "JSON",
-            "leftIcon": "datafile",
-            "rightIcon": "download",
-            "fileName": "clinical.json",
-            "dropdownId": "download"
-          },
-          {
-            "enabled": true,
-            "type": "manifest",
-            "title": "Download Manifest",
-            "leftIcon": "datafile",
-            "rightIcon": "download",
-            "fileName": "manifest.json",
-            "dropdownId": "download"
-          },
-          {
-            "enabled": true,
-            "type": "export-pfb-to-url",
-            "targetURLTemplate": "https://terra.biodatacatalyst.nhlbi.nih.gov/#import-data?url={{PRESIGNED_URL}}",
-            "title": "Export All to Terra",
-            "rightIcon": "external-link"
-          },
-          {
-            "enabled": true,
-            "type": "export-to-workspace",
-            "title": "Export to Workspace",
-            "leftIcon": "datafile",
-            "rightIcon": "download"
-          },
-          {
-            "enabled": true,
-            "type": "export-pfb-to-workspace",
-            "title": "Export PFB to Workspace",
-            "leftIcon": "datafile",
-            "rightIcon": "download"
-          }
-        ],
-        "guppyConfig": {
-          "dataType": "core_metadata_collection",
-          "tierAccessLevel": "regular",
-          "nodeCountTitle": "Metadata Collections",
-          "fieldMapping": [
-            { "field": "project_id", "name": "Project id" },
-            { "field": "core_metadata_collections_id", "name": "Core Metadata Collections ID" },
-            { "field": "genomic_data_category", "name": "Genomic Data Category" },
-            { "field": "genomic_data_format", "name": "Genomic Data Format" },
-            { "field": "genomic_data_type", "name": "Genomic Data Type" },
-            { "field": "genomic_file_name", "name": "Genomic File Name" },
-            { "field": "genomic_file_size", "name": "Genomic File Size" },
-            { "field": "genomic_md5sum", "name": "Genomic md5sum" },
-            { "field": "genomic_experimental_strategy", "name": "Genomic Experimental Strategy" }
-          ],
-          "manifestMapping": {
-            "resourceIndexType": "file",
-            "resourceIdField": "object_id"
-          },
-          "accessibleFieldCheckList": ["project_id"],
-          "accessibleValidationField": "project_id"
-        },
-        "getAccessButtonLink": "https://ufcdc-portal.org/getAccess"
-      },
-      {
-        "tabTitle": "Image Data",
-        "charts": {
-          "project_id": {
-            "chartType": "count",
-            "title": "Projects"
-          },
-          "data_category": {
-            "chartType": "pie",
-            "title": "Slide Image Data Category"
-          },
-          "data_format": {
-            "chartType": "fullPie",
-            "title": "Slide Image Data Format"
-          }
-        },
-        "filters": {
-          "tabs": [
-            {
-              "title": "Slide Image",
-              "fields":[
-                "project_id",
-                "data_category",
-                "data_format"
-              ]
-            }
-          ]
-        },
-        "table": {
-          "enabled": true,
-          "fields": [
-            "project_id",
-            "core_metadata_collections_id",
-            "data_category",
-            "data_format",
-            "data_type",
-            "file_name",
-            "file_size",
-            "md5sum"
-          ]
-        },
-        "dropdowns": {
-          "download": {
-            "title": "Download"
-          }
-        },
-        "buttons": [
-          {
-            "enabled": true,
-            "type": "data",
-            "title": "Download All Clinical",
-            "leftIcon": "user",
-            "rightIcon": "download",
-            "fileName": "clinical.json",
-            "dropdownId": "download"
-          },
-          {
-            "enabled": true,
-            "type": "data-tsv",
-            "title": "TSV",
-            "leftIcon": "datafile",
-            "rightIcon": "download",
-            "fileName": "clinical.tsv",
-            "dropdownId": "download"
-          },
-          {
-            "enabled": true,
-            "type": "data-csv",
-            "title": "CSV",
-            "leftIcon": "datafile",
-            "rightIcon": "download",
-            "fileName": "clinical.csv", 
-            "dropdownId": "download"
-          },
-          {
-            "enabled": true,
-            "type": "data-json",
-            "title": "JSON",
-            "leftIcon": "datafile",
-            "rightIcon": "download",
-            "fileName": "clinical.json",
-            "dropdownId": "download"
-          },
-          {
-            "enabled": true,
-            "type": "manifest",
-            "title": "Download Manifest",
-            "leftIcon": "datafile",
-            "rightIcon": "download",
-            "fileName": "manifest.json",
-            "dropdownId": "download"
-          },
-          {
-            "enabled": true,
-            "type": "export-pfb-to-url",
-            "targetURLTemplate": "https://terra.biodatacatalyst.nhlbi.nih.gov/#import-data?url={{PRESIGNED_URL}}",
-            "title": "Export All to Terra",
-            "rightIcon": "external-link"
-          },
-          {
-            "enabled": true,
-            "type": "export-to-workspace",
-            "title": "Export to Workspace",
-            "leftIcon": "datafile",
-            "rightIcon": "download"
-          },
-          {
-            "enabled": true,
-            "type": "export-pfb-to-workspace",
-            "title": "Export PFB to Workspace",
-            "leftIcon": "datafile",
-            "rightIcon": "download"
-          }
-        ],
-        "guppyConfig": {
-          "dataType": "slide_image",
-          "tierAccessLevel": "regular",
-          "nodeCountTitle": "Metadata Collections",
-          "fieldMapping": [
-            { "field": "project_id", "name": "Project id" },
-            { "field": "core_metadata_collections_id", "name": "Core Metadata Collections ID" },
-            { "field": "slide_image_id", "name": "Slide Image ID" },
-            { "field": "data_category", "name": "Slide Image Data Category" },
-            { "field": "data_format", "name": "Slide Image Data Format" },
-            { "field": "data_type", "name": "Slide Image Data Type" },
-            { "field": "file_name", "name": "Slide Image File Name" },
-            { "field": "file_size", "name": "Slide Image File Size" },
-            { "field": "md5sum", "name": "Slide Image md5sum" }
-          ],
-          "manifestMapping": {
-            "resourceIndexType": "file",
-            "resourceIdField": "object_id"
-          },
-          "accessibleFieldCheckList": ["project_id"],
-          "accessibleValidationField": "project_id"
-        },
-        "getAccessButtonLink": "https://ufcdc-portal.org/getAccess"
+        "src": "/src/img/CancerCenter_h_RGB_COLOR_Badge_180x72.png",
+        "href": "http://www.alchepnet.org/",
+        "alt": "Alchepnet Data Commons"
       }
     ],
-    "useArboristUI": true,
-    "showArboristAuthzOnProfile": true,
-    "showFenceAuthzOnProfile": false
+    "categorical9Colors": [
+      "#E57272", "#F06192", "#B967C7", "#9474CC",
+      "#7985CB", "#64B4F6", "#4EC3F7", "#4CD0E0", "#4CB6AC",
+      "#80C684", "#ADD480", "#DCE674", "#FFF176", "#FFF176",
+      "#FFD44E", "#FFB74C", "#FF8A65", "#A0877F"],
+    "categorical2Colors": ["#E57272", "#B967C7"]
+  },
+  "featureFlags": {
+    "explorer": true,
+    "explorerPublic": false
+  },
+  "explorerConfig": [
+    {
+      "tabTitle": "Participants",
+      "charts": {
+        "project_id": {
+          "chartType": "count",
+          "title": "Projects"
+        },
+        "study_id": {
+          "chartType": "count",
+          "title": "Studys"
+        },
+        "gender": {
+          "chartType": "fullPie",
+          "title": "Sex"
+        },
+        "race": {
+          "chartType": "bar",
+          "title": "Race"
+        },
+        "ethnicity": {
+          "chartType": "pie",
+          "title": "Ethnicity"
+        },
+        "study_site": {
+          "chartType": "pie",
+          "title": "Study Site"
+        },
+        "visit_day_set": {
+          "chartType": "fullPie",
+          "title": "Visits (day)"
+        },
+        "drinking_frequency": {
+          "chartType":"bar",
+          "title": "Drinking Frequency in the past year"
+        },
+        "drinks_per_day": {
+          "chartType":"bar",
+          "title": "Drinks per Day in the past year"
+        },
+        "frequency_of_heavy_drinking": {
+          "chartType":"bar",
+          "title": "Frequency Of Heavy Drinking in the past year"
+        },
+        "irAE_status": {
+          "chartType": "fullPie",
+          "title": "irAE Status"
+        },
+        "days_90_survival": {
+          "chartType":"fullPie",
+          "title": "Days 90 Survival"
+        },
+        "days_180_survival": {
+          "chartType":"fullPie",
+          "title": "Days 180 Survival"
+        },
+        "days_90_irAE": {
+          "chartType": "pie",
+          "title": "Days 90 irAE"
+        },
+        "days_180_irAE": {
+          "chartType":"pie",
+          "title": "Days 180 irAE"
+        }
+      },
+      "filters": {
+        "tabs": [
+          {
+            "title": "Study",
+            "fields":[
+              "project_id",
+              "study_name",
+              "actarm"
+            ]
+          },
+          {
+            "title": "Participant",
+            "fields":[
+              "gender",
+              "race",
+              "ethnicity",
+              "study_site"
+            ]
+          },
+          {
+            "title": "Behavior",
+            "fields":[
+              "drinking_frequency",
+              "drinks_per_day",
+              "frequency_of_heavy_drinking"
+            ]
+          },
+          {
+            "title": "Outcome",
+            "fields":[
+              "days_to_death",
+              "days_90_survival",
+              "days_180_survival"
+            ]
+          },
+          {
+            "title": "Lab Test",
+            "fields":[
+              "laboratory_test"
+            ]
+          }
+        ]
+      },
+      "table": {
+        "enabled": true,
+        "fields": [
+          "project_id",
+          "pat_id",
+          "visit_day",
+          "group",
+          "study_site",
+          "gender",
+          "race",
+          "actarm",
+          "ethnicity",
+          "age_at_index",
+          "drinking_frequency",
+          "drinks_per_day",
+          "frequency_of_heavy_drinking",
+          "irAE_status",
+          "days_to_death",
+          "days_90_irAE",
+          "days_90_survival",
+          "days_180_irAE",
+          "days_180_survival",
+          "laboratory_test"
+        ]
+      },
+      "dropdowns": {},
+      "buttons": [],
+      "guppyConfig": {
+        "dataType": "case",
+        "tierAccessLevel": "regular",
+        "nodeCountTitle": "Participants",
+        "fieldMapping": [
+          { "field": "project_id", "name": "Project" },
+          { "field": "pat_id", "name": "Patient Id" },
+          { "field": "visit_day", "name": "Assessment Date" },
+          { "field": "study_site", "name": "Clinical site"},
+          { "field": "actarm", "name": "Treatment Arm"},
+          { "field": "age_at_index", "name": "Age"},
+          { "field": "eGFR", "name": "eGFR"},
+          { "field": "gender", "name": "sex"},
+          {"field":"observational", "name": "Observational"},
+          {"field": "clinical_trial", "name": "Clinical Trial" },
+          { "field": "drinking_frequency", "name": "Drinking frequency in the past year"},
+          { "field": "drinks_per_day", "name": "Drinks per day in the past year"},
+          { "field": "frequency_of_heavy_drinking", "name": "Frequency of heavy Drinking in the past year"},
+          { "field": "irAE_status", "name": "irAE status"},
+          { "field": "days_to_death", "name": "days to Survival"},
+          { "field": "days_90_irAE", "name": "days 90 irAE"},
+          { "field": "days_90_survival", "name": "days 90 survival"},
+          { "field": "days_180_irAE", "name": "days 180 irAE"}
+        ],
+        "manifestMapping": {
+          "resourceIndexType": "file",
+          "resourceIdField": "object_id",
+          "referenceIdFieldInResourceIndex": "_case_id",
+          "referenceIdFieldInDataIndex": "_case_id"
+        },
+        "accessibleFieldCheckList": ["project_id"],
+        "accessibleValidationField": "project_id"
+      },
+      "getAccessButtonLink": "https://ufcdc-portal.org/getAccess"
+    },
+    {
+      "tabTitle": "Follow Ups",
+      "charts": {
+        "study_id": {
+          "chartType": "count",
+          "title": "Studys"
+        },
+        "visit_day": {
+          "chartType": "pie",
+          "title": "Visits (day)"
+        },
+        "case_arm": {
+          "chartType": "bar",
+          "title": "Treatment Arm"
+        },
+        "case_group": {
+          "chartType": "bar",
+          "title": "Case Group"
+        },
+        "gender": {
+          "chartType": "fullPie",
+          "title": "Sex"
+        },
+        "race": {
+          "chartType": "bar",
+          "title": "Race"
+        },
+        "ethnicity": {
+          "chartType": "pie",
+          "title": "Ethnicity"
+        },
+        "study_site": {
+          "chartType": "fullPie",
+          "title": "Study Site"
+        },
+        "days_90_survival": {
+          "chartType":"fullPie",
+          "title": "Days 90 Survival"
+        },
+        "days_180_survival": {
+          "chartType":"fullPie",
+          "title": "Days 180 Survival"
+        },
+        "days_90_irAE": {
+          "chartType": "pie",
+          "title": "Days 90 irAE"
+        },
+
+        "days_180_irAE": {
+          "chartType":"pie",
+          "title": "Days 180 irAE"
+        }
+      },
+      "filters": {
+        "tabs": [
+          {
+            "title": "Study",
+            "fields":[
+              "project_id",
+              "study_name",
+              "case_arm",
+              "case_group"
+            ]
+          },
+          {
+            "title": "Follow Up",
+            "fields":[
+              "visit_day",
+              "bmi",
+              "child_pugh_score",
+              "lille_score",
+              "maddreys_score",
+              "meld_score"
+            ]
+          },
+          {
+            "title": "Lab Test",
+            "fields":[
+              "laboratory_test"
+            ]
+          },
+          {
+            "title": "Participant",
+            "fields":[
+              "study_site",
+              "gender",
+              "race",
+              "ethnicity"
+            ]
+          },
+          {
+            "title": "Outcome",
+            "fields":[
+              "days_to_death",
+              "days_90_survival",
+              "days_180_survival"
+            ]
+          }
+        ]
+      },
+      "table": {
+        "enabled": true,
+        "fields": [
+          "project_id",
+          "follow_up_id",
+          "study_name",
+          "pat_id",
+          "visit_day",
+          "bmi",
+          "child_pugh_score",
+          "lille_score",
+          "maddreys_score",
+          "meld_score",
+          "case_arm",
+          "case_group"
+        ]
+      },
+      "dropdowns": {},
+      "buttons": [],
+      "guppyConfig": {
+        "dataType": "follow_up",
+        "tierAccessLevel": "regular",
+        "nodeCountTitle": "Follow_ups",
+        "fieldMapping": [
+          { "field": "pat_id", "name": "Patient Id"},
+          { "field": "visit_day", "name": "Assessment Date" },
+          { "field": "study_site", "name": "Clinical site"},
+          { "field": "case_arm", "name": "Treatment Arm"},
+          { "field": "project_id", "name": "Project" },
+          { "field": "visit_day", "name": "Assessment Date" },
+          {"field":"observational", "name": "Observational"},
+          {"field": "clinical_trial", "name": "Clinical Trial" },
+          { "field": "gender", "name": "sex"},
+          { "field": "irAE_status", "name": "irAE status"},
+          { "field": "days_to_death", "name": "days to Survival"},
+          { "field": "days_90_irAE", "name": "days 90 irAE"},
+          { "field": "days_90_survival", "name": "days 90 survival"},
+          { "field": "days_180_irAE", "name": "days 180 irAE"}
+        ],
+        "manifestMapping": {
+          "resourceIndexType": "file",
+          "resourceIdField": "object_id",
+          "referenceIdFieldInResourceIndex": "_case_id",
+          "referenceIdFieldInDataIndex": "_case_id"
+        },
+        "accessibleFieldCheckList": ["project_id"],
+        "accessibleValidationField": "project_id"
+      },
+      "getAccessButtonLink": "https://ufcdc-portal.org/getAccess"
+    },
+    {
+      "tabTitle": "Biospecimens",
+      "charts": {
+        "follow_up_id":{
+          "chartType": "count",
+          "title": "Follow Ups"
+        },
+        "lab_id":{
+          "chartType": "count",
+          "title": "Labs"
+        },
+        "lab_name":{
+          "chartType": "bar",
+          "title": "Labs"
+        },
+        "specimen_type":{
+          "chartType": "bar",
+          "title": "Specimen Type"
+        },
+        "case_group":{
+          "chartType":"bar",
+          "title":"Case Group"
+        },
+        "gender": {
+          "chartType": "fullPie",
+          "title": "Sex"
+        },
+        "race": {
+          "chartType": "bar",
+          "title": "Race"
+        },
+        "ethnicity": {
+          "chartType": "pie",
+          "title": "Ethnicity"
+        },
+        "study_site": {
+          "chartType": "fullPie",
+          "title": "Study Site"
+        },
+        "days_90_survival": {
+          "chartType":"fullPie",
+          "title": "Days 90 Survival"
+        },
+        "days_180_survival": {
+          "chartType":"fullPie",
+          "title": "Days 180 Survival"
+        },
+        "days_90_irAE": {
+          "chartType": "pie",
+          "title": "Days 90 irAE"
+        },
+
+        "days_180_irAE": {
+          "chartType":"pie",
+          "title": "Days 180 irAE"
+        }
+      },
+      "filters": {
+        "tabs": [
+          {
+            "title": "Biospecimen",
+            "fields":[
+              "specimen_type",
+              "lab_name"
+            ]
+          },
+          {
+            "title": "Study",
+            "fields":[
+              "project_id",
+              "study_name",
+              "case_group",
+              "case_arm"
+            ]
+          },
+          {
+            "title":"Participant",
+            "fields":[
+              "study_site",
+              "gender",
+              "race",
+              "ethnicity"
+            ]
+          },
+          {
+            "title":"Follow Up",
+            "fields": [
+              "visit_day"
+            ]
+          },
+          {
+            "title": "Outcome",
+            "fields":[
+              "days_to_death",
+              "days_90_survival",
+              "days_180_survival"
+            ]
+          }
+        ]
+      },
+      "table": {
+        "enabled": true,
+        "fields": [
+          "project_id",
+          "aliquot_id",
+          "follow_up_id",
+          "pat_id",
+          "specimen_type",
+          "visit_day",
+          "irAE_status"
+        ]
+      },
+      "dropdowns": {},
+      "buttons": [],
+      "guppyConfig": {
+        "dataType": "aliquot",
+        "tierAccessLevel": "regular",
+        "nodeCountTitle": "Biospecimens",
+        "fieldMapping": [
+          { "field": "project_id", "name": "Project" },
+          { "field": "pat_id", "name": "Patient Id" },
+          { "field": "visit_day", "name": "Assessment Date" },
+          { "field": "study_site", "name": "Clinical site"},
+          { "field": "observational", "name": "Observational"},
+          { "field": "clinical_trial", "name": "Clinical Trial" },
+          { "field": "gender", "name": "sex"},
+          { "field": "days_to_death", "name": "days to Survival"}
+        ],
+        "manifestMapping": {
+          "resourceIndexType": "file",
+          "resourceIdField": "object_id",
+          "referenceIdFieldInResourceIndex": "_case_id",
+          "referenceIdFieldInDataIndex": "_case_id"
+        },
+        "accessibleFieldCheckList": ["project_id"],
+        "accessibleValidationField": "project_id"
+      },
+      "getAccessButtonLink": "https://ufcdc-portal.org/getAccess"
+    },
+    {
+      "tabTitle": "Lab Results",
+      "charts": {
+        "project_id": {
+          "chartType": "count",
+          "title": "Projects"
+        },
+        "laboratory_test": {
+          "chartType": "bar",
+          "title": "Laboratory Test"
+        },
+        "gender": {
+          "chartType": "fullPie",
+          "title": "Sex"
+        },
+        "race": {
+          "chartType": "bar",
+          "title": "Race"
+        },
+        "lab_name": {
+          "chartType":"bar",
+          "title": "Lab"
+        },
+        "study_site": {
+          "chartType": "fullPie",
+          "title": "Study Site"
+        },
+        "ethnicity": {
+          "chartType": "pie",
+          "title": "Ethnicity"
+        },
+        "test_result": {
+          "chartType": "pie",
+          "title": "Test Result"
+        },
+        "days_90_survival": {
+          "chartType":"fullPie",
+          "title": "Days 90 Survival"
+        },
+        "days_180_survival": {
+          "chartType":"fullPie",
+          "title": "Days 180 Survival"
+        },
+        "days_90_irAE": {
+          "chartType": "pie",
+          "title": "Days 90 irAE"
+        },
+        "days_180_irAE": {
+          "chartType":"pie",
+          "title": "Days 180 irAE"
+        }
+      },
+      "filters": {
+        "tabs": [
+          {
+            "title": "Study",
+            "fields":[
+              "project_id",
+              "study_name",
+              "case_arm",
+              "case_group"
+            ]
+          },
+          {
+            "title":"Lab",
+            "fields": [
+              "lab_name"
+            ]
+          },
+          {
+            "title":"Participant",
+            "fields":[
+              "gender",
+              "race",
+              "ethnicity",
+              "study_site"
+            ]
+          },
+          {
+            "title": "Lab Test",
+            "fields":[
+              "laboratory_test",
+              "test_result"
+            ]
+          },
+          {
+            "title": "Outcome",
+            "fields":[
+              "days_to_death",
+              "days_90_survival",
+              "days_180_survival"
+            ]
+          }
+        ]
+      },
+      "table": {
+        "enabled": true,
+        "fields": [
+          "project_id",
+          "molecular_test_id",
+          "study_name",
+          "pat_id",
+          "case_arm",
+          "case_group",
+          "laboratory_test",
+          "test_value",
+          "test_result",
+          "irAE_status",
+          "visit_day"
+        ]
+      },
+      "guppyConfig": {
+        "dataType": "molecular_test",
+        "tierAccessLevel": "regular",
+        "nodeCountTitle": "Lab Results",
+        "fieldMapping": [
+          { "field": "project_id", "name": "Project" },
+          { "field": "pat_id", "name": "Patient Id" },
+          { "field": "visit_day", "name": "Assessment Date" },
+          { "field": "study_site", "name": "Clinical site"},
+          { "field": "observational", "name": "Observational"},
+          { "field": "clinical_trial", "name": "Clinical Trial" },
+          { "field": "days_to_death", "name": "days to Survival"},
+          { "field": "gender", "name": "sex"}
+        ],
+        "manifestMapping": {
+          "resourceIndexType": "file",
+          "resourceIdField": "object_id",
+          "referenceIdFieldInResourceIndex": "_case_id",
+          "referenceIdFieldInDataIndex": "_case_id"
+        },
+        "accessibleFieldCheckList": ["project_id"],
+        "accessibleValidationField": "project_id"
+      },
+      "getAccessButtonLink": "https://ufcdc-portal.org/getAccess"
+    },
+    {
+      "tabTitle": "Omics Data",
+      "charts": {
+        "project_id": {
+          "chartType": "count",
+          "title": "Projects"
+        },
+        "genomic_experimental_strategy": {
+          "chartType": "bar",
+          "title": "Genomic Profile Experimental Strategy"
+        },
+        "genomic_data_category": {
+          "chartType": "pie",
+          "title": "Genomic Profile Data Category"
+        },
+        "genomic_data_format": {
+          "chartType": "fullPie",
+          "title": "Genomic Profile Data Format"
+        },
+        "slide_image_data_category": {
+          "chartType": "pie",
+          "title": "Slide Image Data Category"
+        },
+        "slide_image_data_format": {
+          "chartType": "fullPie",
+          "title": "Slide Image Data Format"
+        }
+      },
+      "filters": {
+        "tabs": [
+          {
+            "title": "Genomic Profile",
+            "fields":[
+              "project_id",
+              "genomic_experimental_strategy",
+              "genomic_data_category",
+              "genomic_data_format"
+            ]
+          }
+        ]
+      },
+      "table": {
+        "enabled": true,
+        "fields": [
+          "project_id",
+          "core_metadata_collections_id",
+          "genomic_data_category",
+          "genomic_data_format",
+          "genomic_data_type",
+          "genomic_file_name",
+          "genomic_file_size",
+          "genomic_md5sum"
+        ]
+      },
+      "dropdowns": {
+        "download": {
+          "title": "Download"
+        }
+      },
+      "buttons": [
+        {
+          "enabled": true,
+          "type": "data",
+          "title": "Download All Clinical",
+          "leftIcon": "user",
+          "rightIcon": "download",
+          "fileName": "clinical.json",
+          "dropdownId": "download"
+        },
+        {
+          "enabled": true,
+          "type": "data-tsv",
+          "title": "TSV",
+          "leftIcon": "datafile",
+          "rightIcon": "download",
+          "fileName": "clinical.tsv",
+          "dropdownId": "download"
+        },
+        {
+          "enabled": true,
+          "type": "data-csv",
+          "title": "CSV",
+          "leftIcon": "datafile",
+          "rightIcon": "download",
+          "fileName": "clinical.csv", 
+          "dropdownId": "download"
+        },
+        {
+          "enabled": true,
+          "type": "data-json",
+          "title": "JSON",
+          "leftIcon": "datafile",
+          "rightIcon": "download",
+          "fileName": "clinical.json",
+          "dropdownId": "download"
+        },
+        {
+          "enabled": true,
+          "type": "manifest",
+          "title": "Download Manifest",
+          "leftIcon": "datafile",
+          "rightIcon": "download",
+          "fileName": "manifest.json",
+          "dropdownId": "download"
+        },
+        {
+          "enabled": true,
+          "type": "export-pfb-to-url",
+          "targetURLTemplate": "https://terra.biodatacatalyst.nhlbi.nih.gov/#import-data?url={{PRESIGNED_URL}}",
+          "title": "Export All to Terra",
+          "rightIcon": "external-link"
+        },
+        {
+          "enabled": true,
+          "type": "export-to-workspace",
+          "title": "Export to Workspace",
+          "leftIcon": "datafile",
+          "rightIcon": "download"
+        },
+        {
+          "enabled": true,
+          "type": "export-pfb-to-workspace",
+          "title": "Export PFB to Workspace",
+          "leftIcon": "datafile",
+          "rightIcon": "download"
+        }
+      ],
+      "guppyConfig": {
+        "dataType": "core_metadata_collection",
+        "tierAccessLevel": "regular",
+        "nodeCountTitle": "Metadata Collections",
+        "fieldMapping": [
+          { "field": "project_id", "name": "Project id" },
+          { "field": "core_metadata_collections_id", "name": "Core Metadata Collections ID" },
+          { "field": "genomic_data_category", "name": "Genomic Data Category" },
+          { "field": "genomic_data_format", "name": "Genomic Data Format" },
+          { "field": "genomic_data_type", "name": "Genomic Data Type" },
+          { "field": "genomic_file_name", "name": "Genomic File Name" },
+          { "field": "genomic_file_size", "name": "Genomic File Size" },
+          { "field": "genomic_md5sum", "name": "Genomic md5sum" },
+          { "field": "genomic_experimental_strategy", "name": "Genomic Experimental Strategy" }
+        ],
+        "manifestMapping": {
+          "resourceIndexType": "file",
+          "resourceIdField": "object_id"
+        },
+        "accessibleFieldCheckList": ["project_id"],
+        "accessibleValidationField": "project_id"
+      },
+      "getAccessButtonLink": "https://ufcdc-portal.org/getAccess"
+    },
+    {
+      "tabTitle": "Image Data",
+      "charts": {
+        "project_id": {
+          "chartType": "count",
+          "title": "Projects"
+        },
+        "data_category": {
+          "chartType": "pie",
+          "title": "Slide Image Data Category"
+        },
+        "data_format": {
+          "chartType": "fullPie",
+          "title": "Slide Image Data Format"
+        }
+      },
+      "filters": {
+        "tabs": [
+          {
+            "title": "Slide Image",
+            "fields":[
+              "project_id",
+              "data_category",
+              "data_format"
+            ]
+          }
+        ]
+      },
+      "table": {
+        "enabled": true,
+        "fields": [
+          "project_id",
+          "core_metadata_collections_id",
+          "data_category",
+          "data_format",
+          "data_type",
+          "file_name",
+          "file_size",
+          "md5sum"
+        ]
+      },
+      "dropdowns": {
+        "download": {
+          "title": "Download"
+        }
+      },
+      "buttons": [
+        {
+          "enabled": true,
+          "type": "data",
+          "title": "Download All Clinical",
+          "leftIcon": "user",
+          "rightIcon": "download",
+          "fileName": "clinical.json",
+          "dropdownId": "download"
+        },
+        {
+          "enabled": true,
+          "type": "data-tsv",
+          "title": "TSV",
+          "leftIcon": "datafile",
+          "rightIcon": "download",
+          "fileName": "clinical.tsv",
+          "dropdownId": "download"
+        },
+        {
+          "enabled": true,
+          "type": "data-csv",
+          "title": "CSV",
+          "leftIcon": "datafile",
+          "rightIcon": "download",
+          "fileName": "clinical.csv", 
+          "dropdownId": "download"
+        },
+        {
+          "enabled": true,
+          "type": "data-json",
+          "title": "JSON",
+          "leftIcon": "datafile",
+          "rightIcon": "download",
+          "fileName": "clinical.json",
+          "dropdownId": "download"
+        },
+        {
+          "enabled": true,
+          "type": "manifest",
+          "title": "Download Manifest",
+          "leftIcon": "datafile",
+          "rightIcon": "download",
+          "fileName": "manifest.json",
+          "dropdownId": "download"
+        },
+        {
+          "enabled": true,
+          "type": "export-pfb-to-url",
+          "targetURLTemplate": "https://terra.biodatacatalyst.nhlbi.nih.gov/#import-data?url={{PRESIGNED_URL}}",
+          "title": "Export All to Terra",
+          "rightIcon": "external-link"
+        },
+        {
+          "enabled": true,
+          "type": "export-to-workspace",
+          "title": "Export to Workspace",
+          "leftIcon": "datafile",
+          "rightIcon": "download"
+        },
+        {
+          "enabled": true,
+          "type": "export-pfb-to-workspace",
+          "title": "Export PFB to Workspace",
+          "leftIcon": "datafile",
+          "rightIcon": "download"
+        }
+      ],
+      "guppyConfig": {
+        "dataType": "slide_image",
+        "tierAccessLevel": "regular",
+        "nodeCountTitle": "Metadata Collections",
+        "fieldMapping": [
+          { "field": "project_id", "name": "Project id" },
+          { "field": "core_metadata_collections_id", "name": "Core Metadata Collections ID" },
+          { "field": "slide_image_id", "name": "Slide Image ID" },
+          { "field": "data_category", "name": "Slide Image Data Category" },
+          { "field": "data_format", "name": "Slide Image Data Format" },
+          { "field": "data_type", "name": "Slide Image Data Type" },
+          { "field": "file_name", "name": "Slide Image File Name" },
+          { "field": "file_size", "name": "Slide Image File Size" },
+          { "field": "md5sum", "name": "Slide Image md5sum" }
+        ],
+        "manifestMapping": {
+          "resourceIndexType": "file",
+          "resourceIdField": "object_id"
+        },
+        "accessibleFieldCheckList": ["project_id"],
+        "accessibleValidationField": "project_id"
+      },
+      "getAccessButtonLink": "https://ufcdc-portal.org/getAccess"
+    }
+  ],
+  "useArboristUI": true,
+  "showArboristAuthzOnProfile": true,
+  "showFenceAuthzOnProfile": false
 }

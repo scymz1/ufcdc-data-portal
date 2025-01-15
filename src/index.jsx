@@ -27,6 +27,7 @@ import ProtectedContent from './Login/ProtectedContent';
 import HomePage from './Homepage/page';
 import DocumentPage from './Document/page';
 import GetAccessPage from './GetAccess/GetAccessPage';
+import DataAnalysisPage from './CustomDataAnalysis/DataAnalysisPage'
 import { fetchCoreMetadata, ReduxCoreMetadataPage } from './CoreMetadata/reduxer';
 import Indexing from './Indexing/Indexing';
 import IndexPage from './Index/page';
@@ -233,6 +234,14 @@ async function init() {
                     component={
                       (props) => <ProtectedContent filter={() => store.dispatch(fetchAccess())}
                       component={GetAccessPage} {...props} />
+                    }
+                  />
+                  <Route
+                    exact
+                    path='/dataAnalyze'
+                    component={
+                      (props) => <ProtectedContent filter={() => store.dispatch(fetchAccess())}
+                      component={DataAnalysisPage} {...props} />
                     }
                   />
                   {

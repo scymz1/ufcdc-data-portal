@@ -30,6 +30,7 @@ import IcoStatusReady from './status_ready.svg';
 import IcoUpload from './upload.svg';
 import IcoUploadWhite from './upload-white.svg';
 import IcoWorkspace from './workspace.svg';
+import IcoDataAnalysis from "./dataAnalysis.svg";
 import IcoStageAccess from './stage-icons/stage-access.svg';
 import IcoStageAnalyze from './stage-icons/stage-analyze.svg';
 import IcoStageExplore from './stage-icons/stage-explore.svg';
@@ -182,6 +183,9 @@ const dictIcons = {
   ),
   workspace: (height, customedStyles) => (
     <IcoWorkspace height={height} style={{ ...customedStyles }} />
+  ),
+  dataAnalysis: (height, customedStyles) => (
+    <IcoDataAnalysis height={height} style={{ ...customedStyles }} />
   ),
   uchicago: (height, customedStyles) => (
     <IcoSignature
