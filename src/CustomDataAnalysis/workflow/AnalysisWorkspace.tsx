@@ -9,7 +9,7 @@ import {
   chartDownloadReducer,
   DashboardDownloadContext,
 } from "../../GDCcontexts";
-// import { CountHookRegistry } from "@gff/core";
+import { CountHookRegistry } from "@gff/core";
 import { useLocation, useHistory } from "react-router-dom";
 
  
