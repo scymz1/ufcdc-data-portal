@@ -1,0 +1,44 @@
+
+.event-type-filter {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .filter-section {
+    margin-bottom: 15px;
+  }
+  
+  .filter-section__title {
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  
+  .filter-section__divider {
+    height: 1px;
+    background-color: #eee;
+    margin: 15px 0;
+  }
+  
+  .filter-group__option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  
+  .filter-group__label {
+    margin-left: 8px;
+    font-size: 14px;
+  }
+  
+  .filter-group__label--disabled {
+    color: #999;
+  }
+  
+  .filter-group__count {
+    margin-left: 5px;
+    font-size: 12px;
+    color: #666;
+  }

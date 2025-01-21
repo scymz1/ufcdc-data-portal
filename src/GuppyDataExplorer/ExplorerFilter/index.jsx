@@ -11,6 +11,8 @@ import {
 import { checkForNoAccessibleProject, checkForFullAccessibleProject } from '../GuppyDataExplorerHelper';
 import { labelToPlural } from '../utils';
 import { explorerHideEmptyFilterSection, explorerFilterValuesToHide } from '../../localconf';
+// EventTypeFilter
+import EventTypeFilter from './EventTypeFilter';
 
 /**
  * For selectedAccessFilter the default value is 'Data with Access'
@@ -26,6 +28,34 @@ class ExplorerFilter extends React.Component {
     };
   }
 
+  // event
+    // 添加 componentDidMount
+  componentDidMount() {
+    const hasEventTypeField = this.props.filterConfig.tabs.some(
+      tab => tab.fields.includes('event_type')
+    );
+  
+    if (hasEventTypeField) {
+      // 添加到 extraAggsFields
+      const updatedExtraAggsFields = [
+        ...this.props.extraAggsFields,
+        'event_type'
+      ];
+  
+      // 更新 filterConfig
+      const updatedFilterConfig = {
+        ...this.props.filterConfig,
+        extraAggsFields: updatedExtraAggsFields
+      };
+  
+      // 请求数据
+      this.props.onReceiveNewAggsData && this.props.onReceiveNewAggsData({
+        ...updatedFilterConfig,
+        type: this.props.guppyConfig.type
+      });
+    }
+  }
+  
   getSnapshotBeforeUpdate(prevProps) {
     if (prevProps.accessibleFieldObject !== this.props.accessibleFieldObject
       || prevProps.unaccessibleFieldObject !== this.props.unaccessibleFieldObject
@@ -131,6 +161,11 @@ class ExplorerFilter extends React.Component {
   };
 
   render() {
+    // event type filter
+    const hasEventTypeField = this.props.filterConfig.tabs.some(
+      tab => tab.fields.includes('event_type')
+    );
+
     const filterProps = {
       filterConfig: this.props.filterConfig,
       extraAggsFields: this.props.extraAggsFields,
@@ -195,6 +230,24 @@ class ExplorerFilter extends React.Component {
             />
           ) : (<React.Fragment />)
         }
+        {/* event type filter */}
+        {hasEventTypeField && (
+          <div className="event-type-filter-wrapper">
+            <h4>Event Type Filter</h4>
+            <EventTypeFilter
+              field="event_type"
+              options={this.props.receivedAggsData?.event_type?.histogram || []}
+              onFilterChange={(field, value) => {
+                if (this.props.onFilterChange) {
+                  this.props.onFilterChange({
+                    [field]: value
+                  });
+                }
+              }}
+              currentFilters={this.props.filtersApplied?.event_type}
+            />
+          </div>
+        )}
         {filterFragment}
       </div>
     );
@@ -220,6 +273,8 @@ ExplorerFilter.propTypes = {
   getAccessButtonLink: PropTypes.string,
   hideGetAccessButton: PropTypes.bool,
   userFilterFromURL: PropTypes.object,
+  receivedAggsData: PropTypes.object, 
+  filtersApplied: PropTypes.object,    
 };
 
 ExplorerFilter.defaultProps = {
@@ -240,6 +295,9 @@ ExplorerFilter.defaultProps = {
   getAccessButtonLink: undefined,
   hideGetAccessButton: false,
   userFilterFromURL: {},
+  // event type filter
+  receivedAggsData: {},   
+  filtersApplied: {},
 };
 
 export default ExplorerFilter;

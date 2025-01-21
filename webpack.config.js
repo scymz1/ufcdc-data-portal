@@ -1,30 +1,20 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
-const fs = require('fs');
 
 const basename = process.env.BASENAME || '/';
-const basenameWithTrailingSlash = basename.endsWith('/') ? basename : `${basename}/`;
 const pathPrefix = basename.endsWith('/') ? basename.slice(0, basename.length - 1) : basename;
 const app = process.env.APP || 'dev';
 
 const configFileName = (app === 'dev') ? 'default' : app;
 // eslint-disable-next-line import/no-dynamic-require
 const configFile = require(`./data/config/${configFileName}.json`);
-const { DAPTrackingURL, gaTrackingId } = configFile;
+const { DAPTrackingURL } = configFile;
 const scriptSrcURLs = [];
 const connectSrcURLs = [];
-const imgSrcURLs = [];
 if (DAPTrackingURL) {
   scriptSrcURLs.push(DAPTrackingURL);
   connectSrcURLs.push(DAPTrackingURL);
-}
-if (gaTrackingId?.startsWith('UA-') || gaTrackingId?.startsWith('G-')) {
-  scriptSrcURLs.push(...['https://www.google-analytics.com', 'https://ssl.google-analytics.com', 'https://www.googletagmanager.com']);
-  connectSrcURLs.push(...['https://www.google-analytics.com', 'https://*.analytics.google.com', 'https://analytics.google.com', 'https://*.g.doubleclick.net']);
-  imgSrcURLs.push('https://www.google-analytics.com', 'https://*.g.doubleclick.net', 'https://*.google.com');
-} else {
-  console.log('Unknown GA tag, skipping GA setup...');
 }
 if (process.env.DATA_UPLOAD_BUCKET) {
   connectSrcURLs.push(`https://${process.env.DATA_UPLOAD_BUCKET}.s3.amazonaws.com`);
@@ -37,11 +27,10 @@ if (configFile.featureFlags && configFile.featureFlags.discoveryUseAggMDS) {
   connectSrcURLs.push('https://dataguids.org');
 }
 if (configFile.featureFlags && configFile.featureFlags.studyRegistration) {
-  connectSrcURLs.push('https://classic.clinicaltrials.gov');
+  connectSrcURLs.push('https://clinicaltrials.gov');
 }
 if (process.env.DATADOG_APPLICATION_ID && process.env.DATADOG_CLIENT_TOKEN) {
   connectSrcURLs.push('https://*.logs.datadoghq.com');
-  connectSrcURLs.push('https://*.browser-intake-ddog-gov.com');
 }
 if (process.env.MAPBOX_API_TOKEN) {
   connectSrcURLs.push('https://*.tiles.mapbox.com');
@@ -55,17 +44,6 @@ if (configFile && configFile.analysisTools) {
       iFrameApplicationURLs.push(e.applicationUrl);
     }
   });
-}
-
-// returns the last modified time of the CSS file
-function getCSSVersion() {
-  const overridesCss = './src/css/themeoverrides.css';
-  if (!fs.existsSync(overridesCss)) {
-    console.warn(`${overridesCss} does not exist`);
-    return ('');
-  }
-  const stats = fs.statSync(overridesCss);
-  return (stats.mtime.getTime());
 }
 
 const plugins = [
@@ -89,7 +67,6 @@ const plugins = [
   new webpack.EnvironmentPlugin(['DATADOG_APPLICATION_ID']),
   new webpack.EnvironmentPlugin(['DATADOG_CLIENT_TOKEN']),
   new webpack.EnvironmentPlugin(['DATA_UPLOAD_BUCKET']),
-  new webpack.EnvironmentPlugin(['GEN3_BUNDLE']),
   new webpack.DefinePlugin({ // <-- key to reducing React's size
     'process.env': {
       NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'dev'),
@@ -103,9 +80,8 @@ const plugins = [
     title: configFile.components.appName || 'Generic Data Commons',
     metaDescription: configFile.components.metaDescription || '',
     basename: pathPrefix,
-    cssVersion: getCSSVersion(),
     template: 'src/index.ejs',
-    connectSrc: ((() => {
+    connect_src: (function () {
       const rv = {};
       if (typeof process.env.FENCE_URL !== 'undefined') {
         rv[(new URL(process.env.FENCE_URL)).origin] = true;
@@ -133,8 +109,9 @@ const plugins = [
         });
       }
       return Object.keys(rv).join(' ');
-    })()),
-    scriptSrc: ((() => {
+    }()),
+    dap_url: DAPTrackingURL,
+    script_src: (function () {
       const rv = {};
       if (scriptSrcURLs.length > 0) {
         scriptSrcURLs.forEach((url) => {
@@ -142,17 +119,7 @@ const plugins = [
         });
       }
       return Object.keys(rv).join(' ');
-    })()),
-    imgSrc: ((() => {
-      const rv = {};
-      if (imgSrcURLs.length > 0) {
-        imgSrcURLs.forEach((url) => {
-          rv[(new URL(url)).origin] = true;
-        });
-      }
-      return Object.keys(rv).join(' ');
-    })()),
-    dapURL: DAPTrackingURL,
+    }()),
     hash: true,
     chunks: ['vendors~bundle', 'bundle'],
   }),
@@ -250,7 +217,7 @@ module.exports = {
   output: {
     path: __dirname,
     filename: '[name].js',
-    publicPath: basenameWithTrailingSlash,
+    publicPath: basename,
   },
   optimization,
   devtool,

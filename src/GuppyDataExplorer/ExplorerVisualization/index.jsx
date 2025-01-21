@@ -11,6 +11,16 @@ import DataSummaryCardGroup from '../../components/cards/DataSummaryCardGroup';
 import ExplorerHeatMap from '../ExplorerHeatMap';
 import ExplorerTable from '../ExplorerTable';
 import ReduxExplorerButtonGroup from '../ExplorerButtonGroup/ReduxExplorerButtonGroup';
+
+import SummaryBoxplotChart from './SummaryBoxPlotChart';
+import StackedLineChart from './StackedLineChart';
+// import RadarChart from './RadarChart';
+// import { MyResponsiveSankey } from './SankeyDiagram';
+import { MolecularTestTab } from './MolecularTestTab';
+import SurvivalCurve from './KaplanSurvivalCurve';
+import FilteredSurvivalCurve from './FilteredSurvivalCurve';
+import GroupedSurvivalCurve from './GroupedSurvivalCurve';
+
 import {
   TableConfigType,
   ButtonConfigType,
@@ -168,6 +178,115 @@ class ExplorerVisualization extends React.Component {
                 useCustomizedColorMap={!!components.categorical9Colors}
                 customizedColorMap={components.categorical9Colors || []}
               />
+              {this.props.guppyConfig.type == "follow_up" &&
+                <div className="summary-chart-group" style={{height:'fit-content', minHeight:400}}>
+                  <SummaryBoxplotChart
+                    casecount={chartData.countItems[0].value}
+                    fetchAndUpdateRawData={this.props.fetchAndUpdateRawData}
+                    attribute="meld_score"
+                    category="case_arm"
+                    title="MELD Score Clinical Trial"
+                  />
+                  <StackedLineChart
+                      casecount={chartData.countItems[0].value}
+                      fetchAndUpdateRawData={this.props.fetchAndUpdateRawData} 
+                      attribute="meld_score" 
+                      category="case_arm"
+                      title="MELD Score Clinical Trial"
+                 />
+                 {/*  Kaplan Survival Curve*/}
+                  <SurvivalCurve
+                    fetchAndUpdateRawData={this.props.fetchAndUpdateRawData}
+                    casecount={chartData.countItems[0].value}
+                  />
+
+                  {/* <FilteredSurvivalCurve
+                    fetchAndUpdateRawData={this.props.fetchAndUpdateRawData}
+                    casecount={chartData.countItems[0].value}
+                  /> */}
+
+                  <GroupedSurvivalCurve
+                    fetchAndUpdateRawData={this.props.fetchAndUpdateRawData}
+                    casecount={chartData.countItems[0].value}
+                    guppyConfig={this.props.guppyConfig}
+                  />
+
+                 <SummaryBoxplotChart
+                        casecount={chartData.countItems[0].value}
+                        title={"MELD Score Observation Study"}
+                        fetchAndUpdateRawData={this.props.fetchAndUpdateRawData}
+                        attribute="meld_score"
+                        category="case_group"
+                    />
+                  <StackedLineChart
+                        casecount={chartData.countItems[0].value}
+                        fetchAndUpdateRawData={this.props.fetchAndUpdateRawData}  
+                        attribute="meld_score"
+                        category="case_group"
+                        title="MELD Score Observation Study"
+                    />
+                  <SummaryBoxplotChart
+                      casecount={chartData.countItems[0].value}
+                      fetchAndUpdateRawData={this.props.fetchAndUpdateRawData}
+                      attribute="child_pugh_score"
+                      category="case_arm"
+                      title="Child-Pugh Score Clinical Trial"
+                  />
+                  <StackedLineChart
+                    casecount={chartData.countItems[0].value}
+                    fetchAndUpdateRawData={this.props.fetchAndUpdateRawData}  
+                    attribute="child_pugh_score"
+                    category="case_arm"
+                    title="Child-Pugh Score Clinical Trial"
+                  />
+                  <SummaryBoxplotChart
+                        casecount={chartData.countItems[0].value}
+                        fetchAndUpdateRawData={this.props.fetchAndUpdateRawData}
+                        attribute="child_pugh_score"
+                        title="Child-Pugh Score Observational Study"
+                        category="case_group"
+                    />
+                  <StackedLineChart
+                          casecount={chartData.countItems[0].value}
+                          fetchAndUpdateRawData={this.props.fetchAndUpdateRawData}  
+                          attribute="child_pugh_score"
+                          category="case_group"
+                          title="Child-Pugh Score Observational Study"
+                  />
+
+                  <SummaryBoxplotChart
+                        casecount={chartData.countItems[0].value}
+                        fetchAndUpdateRawData={this.props.fetchAndUpdateRawData}
+                        attribute="maddreys_score"
+                        category="case_arm"
+                        title="Maddrey's Discriminant Function Score Clinical Trial"
+                  />
+                    <StackedLineChart
+                        casecount={chartData.countItems[0].value}
+                        fetchAndUpdateRawData={this.props.fetchAndUpdateRawData} 
+                        attribute="maddreys_score" 
+                        category='case_arm'
+                        title="Maddrey's Discriminant Function Score Clinical Trial"
+                    />
+                    <SummaryBoxplotChart
+                        title={'Lille Score Clinical Trial'}
+                        casecount={chartData.countItems[0].value}
+                        fetchAndUpdateRawData={this.props.fetchAndUpdateRawData}
+                        attribute="lille_score"
+                        category="case_arm"
+                    />
+                </div>
+              }
+              { this.props.guppyConfig.type == "molecular_test" 
+                && this.props.totalCount != null && this.props.totalCount <10000 &&
+                chartData.countItems[0].value>0 &&
+                <div> 
+                  <MolecularTestTab
+                    casecount={chartData.countItems[0].value}
+                    fetchAndUpdateRawData={this.props.fetchAndUpdateRawData}
+                  />
+                </div>
+              }
             </div>
           )
         }
