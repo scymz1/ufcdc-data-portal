@@ -109,6 +109,7 @@ class ExplorerVisualization extends React.Component {
   };
 
   render() {
+    // console.log("this.props.aggsData, this.props.chartConfig, this.props.filter", this.props.aggsData, this.props.chartConfig, this.props.filter);
     const chartData = this.getData(this.props.aggsData, this.props.chartConfig, this.props.filter);
     const tableColumnsOrdered = (this.props.tableConfig.fields
       && this.props.tableConfig.fields.length > 0);
@@ -142,6 +143,7 @@ class ExplorerVisualization extends React.Component {
     if (heatMapGuppyConfig && this.connectedFilter.current) {
       this.updateConnectedFilter(heatMapMainYAxisVar);
     }
+    // console.log("chartData", chartData);
 
     return (
       <div className={this.props.className}>
@@ -180,25 +182,25 @@ class ExplorerVisualization extends React.Component {
               />
               {this.props.guppyConfig.type == "follow_up" &&
                 <div className="summary-chart-group" style={{height:'fit-content', minHeight:400}}>
-                  <SummaryBoxplotChart
+                  {/* <SummaryBoxplotChart
                     casecount={chartData.countItems[0].value}
                     fetchAndUpdateRawData={this.props.fetchAndUpdateRawData}
                     attribute="meld_score"
                     category="case_arm"
                     title="MELD Score Clinical Trial"
-                  />
-                  <StackedLineChart
+                  /> */}
+                  {/* <StackedLineChart
                       casecount={chartData.countItems[0].value}
                       fetchAndUpdateRawData={this.props.fetchAndUpdateRawData} 
                       attribute="meld_score" 
                       category="case_arm"
                       title="MELD Score Clinical Trial"
-                 />
+                 /> */}
                  {/*  Kaplan Survival Curve*/}
-                  <SurvivalCurve
+                  {/* <SurvivalCurve
                     fetchAndUpdateRawData={this.props.fetchAndUpdateRawData}
                     casecount={chartData.countItems[0].value}
-                  />
+                  /> */}
 
                   {/* <FilteredSurvivalCurve
                     fetchAndUpdateRawData={this.props.fetchAndUpdateRawData}
@@ -211,7 +213,7 @@ class ExplorerVisualization extends React.Component {
                     guppyConfig={this.props.guppyConfig}
                   />
 
-                 <SummaryBoxplotChart
+                 {/* <SummaryBoxplotChart
                         casecount={chartData.countItems[0].value}
                         title={"MELD Score Observation Study"}
                         fetchAndUpdateRawData={this.props.fetchAndUpdateRawData}
@@ -274,10 +276,10 @@ class ExplorerVisualization extends React.Component {
                         fetchAndUpdateRawData={this.props.fetchAndUpdateRawData}
                         attribute="lille_score"
                         category="case_arm"
-                    />
+                    /> */}
                 </div>
               }
-              { this.props.guppyConfig.type == "molecular_test" 
+              {/* { this.props.guppyConfig.type == "molecular_test" 
                 && this.props.totalCount != null && this.props.totalCount <10000 &&
                 chartData.countItems[0].value>0 &&
                 <div> 
@@ -286,7 +288,7 @@ class ExplorerVisualization extends React.Component {
                     fetchAndUpdateRawData={this.props.fetchAndUpdateRawData}
                   />
                 </div>
-              }
+              } */}
             </div>
           )
         }

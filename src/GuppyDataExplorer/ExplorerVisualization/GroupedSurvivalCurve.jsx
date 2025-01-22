@@ -10,7 +10,6 @@ const GroupedSurvivalCurve = ({ fetchAndUpdateRawData, casecount, guppyConfig })
   const [groupingField, setGroupingField] = useState('gender');
   const [patientCounts, setPatientCounts] = useState({});
   const [rawData, setRawData] = useState(null);
-
   const fetchingRef = useRef(false);
 
   const DATA_LIMIT = 5000;
@@ -40,18 +39,27 @@ const GroupedSurvivalCurve = ({ fetchAndUpdateRawData, casecount, guppyConfig })
       
       try {
         fetchingRef.current = true;
-        
-        const followupRes = await fetchAndUpdateRawData({
-          offset: 0,
-          size: Math.min(DATA_LIMIT, casecount),
-          sort: []
-        });
 
+        const followupRes = await askGuppyForRawData(
+          guppyUrl,
+          "follow_up",
+          ['pat_id', 'days_to_follow_up'],
+          {},
+          [],
+          0,
+          Math.min(DATA_LIMIT, casecount),
+        );
+        // console.log("followupRes", followupRes);
+        // const followupRes = await fetchAndUpdateRawData({
+        //   offset: 0,
+        //   size: Math.min(DATA_LIMIT, casecount),
+        //   sort: []
+        // });
         if (!followupRes?.data) {
           throw new Error('No follow-up data available');
         }
 
-        const followupPatIds = followupRes.data
+        const followupPatIds = followupRes.data.follow_up
           .filter(d => d?.pat_id && d.pat_id.length > 0)
           .map(d => d.pat_id[0]);
 
@@ -78,11 +86,11 @@ const GroupedSurvivalCurve = ({ fetchAndUpdateRawData, casecount, guppyConfig })
           throw new Error('Invalid demographic data response');
         }
 
-        console.log ('followupRes', followupRes);
-        console.log ('followupPatIds', followupPatIds);
-        console.log ('DemoRes', demoRes);
-        console.log ('guppyUrl', guppyUrl);
-        console.log ('guppyConfig', guppyConfig);
+        // console.log ('followupRes', followupRes);
+        // console.log ('followupPatIds', followupPatIds);
+        // console.log ('DemoRes', demoRes);
+        // console.log ('guppyUrl', guppyUrl);
+        // console.log ('guppyConfig', guppyConfig);
         
 
         // Clean and validate demographic data
@@ -101,7 +109,7 @@ const GroupedSurvivalCurve = ({ fetchAndUpdateRawData, casecount, guppyConfig })
 
         const mergedData = {
           ...followupRes,
-          data: followupRes.data
+          data: followupRes.data.follow_up
             .filter(followup => demographicMap.has(followup.pat_id[0]))
             .map(followup => ({
               ...followup,
@@ -111,7 +119,7 @@ const GroupedSurvivalCurve = ({ fetchAndUpdateRawData, casecount, guppyConfig })
 
         setRawData(mergedData);
 
-        console.log ('mergedData', mergedData);
+        // console.log ('mergedData', mergedData);
         
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -179,12 +187,11 @@ const GroupedSurvivalCurve = ({ fetchAndUpdateRawData, casecount, guppyConfig })
     
     const patientEvents = new Map();
     const groupedPatients = new Map();
-    
+    // console.log("raw data", rawData);
     // Process and group patient data
     rawData.data.forEach(record => {
       const patId = record.pat_id?.[0];
       if (!patId) return;
-      
       const time = parseFloat(record.days_to_follow_up);
       if (isNaN(time)) return;
     
@@ -201,7 +208,6 @@ const GroupedSurvivalCurve = ({ fetchAndUpdateRawData, casecount, guppyConfig })
         }
         groupedPatients.get(groupValue).add(patId);
       }
-      
       patientEvents.get(patId).push({
         time,
         eventType: record.event_type,
@@ -284,7 +290,6 @@ const GroupedSurvivalCurve = ({ fetchAndUpdateRawData, casecount, guppyConfig })
     });
   })();
 
-  console.log ("chartData", chartData);
 
   return (
     <div className="w-full p-4">

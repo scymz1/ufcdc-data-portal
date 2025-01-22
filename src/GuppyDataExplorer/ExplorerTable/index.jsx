@@ -365,6 +365,7 @@ class ExplorerTable extends React.Component {
       subComponent = (row) => Object.keys(nestedArrayFieldColumnConfigs).map((key) => {
         const rowData = (this.props.isLocked || !this.props.rawData)
           ? [] : _.slice(this.props.rawData, row.index, row.index + 1);
+        console.log("this happened?");
         return (
           <div className='explorer-nested-table' key={key}>
             <ReactTable
